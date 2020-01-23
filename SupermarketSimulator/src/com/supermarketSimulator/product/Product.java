@@ -30,6 +30,9 @@ public class Product {
         this.discount = discount;
     }
 
+    public boolean isLegalToChildren() {
+        return this.legalToChildren;
+    }
     public void showInfo() {
         StringBuffer stringBuffer = new StringBuffer();
 
@@ -37,8 +40,34 @@ public class Product {
         System.out.println(stringBuffer);
     }
 
+    public void deleteAmountOfGoods(Integer quantityGoods) {
+        if (quantityGoods <= 0) {
+            throw new IllegalArgumentException("The number of products when deleting must be positive");
+        }
+        this.amountOfGoods -= quantityGoods;
+    }
+
     public Integer getAmountOfGoods() {
         return amountOfGoods;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public Discount getDiscount() {
+        return discount;
     }
 
 }

@@ -45,6 +45,10 @@ public class Supermarket {
         return products.get(index);
     }
 
+    public Customer getCustomer(int index) {
+        return customers.get(index);
+    }
+
     public void showInfoAllProducts() {
         for (Product product : products) {
             product.showInfo();

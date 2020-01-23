@@ -20,7 +20,7 @@ public class SupermarketController {
         fillSupermarket();
         Date date = new Date();
         Date closeDate = Functions.addHours(date, hoursOfWork);
-        startSupermarket(date, closeDate);
+        runSupermarket(date, closeDate);
     }
 
     private void fillSupermarket() {
@@ -44,15 +44,15 @@ public class SupermarketController {
             int customerIndex = Functions.randomNumber(countOfCustomers);
             int productIndex = Functions.randomNumber(countOfProducts);
 
-            Integer quantityGoodsOfProduct = supermarket.getProduct(productIndex).getAmountOfGoods();
-            int maxQuantityGoodsOfProduct = quantityGoodsOfProduct > 0 ? quantityGoodsOfProduct : 1;
-            int quantityGoods = Functions.randomNumber(maxQuantityGoodsOfProduct) + 1;
+            Integer amountOfGoodsProduct = supermarket.getProduct(productIndex).getAmountOfGoods();
+            int amountOfGoodsOfProductMax = amountOfGoodsProduct > 0 ? amountOfGoodsProduct : 1;
+            int amountOfGoods = Functions.randomNumber(amountOfGoodsOfProductMax) + 1;
 
-//            supermarket.getCustomer(customerIndex).addProductToBasket(date, quantityGoods, productIndex);
+            supermarket.getCustomer(customerIndex).putToBasket(date, amountOfGoods, productIndex);
         }
     }
 
-    private void startSupermarket(Date date, Date dateClose) {
+    private void runSupermarket(Date date, Date dateClose) {
         date = Functions.addRandomTime(date);
         supermarket.openSupermarket(date);
         addCustomerInSupermarket(date);
