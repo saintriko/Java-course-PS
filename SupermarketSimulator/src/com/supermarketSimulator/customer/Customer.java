@@ -113,7 +113,7 @@ public class Customer {
     }
 
     private void printInfoPaymentBill(StringBuilder stringBuilder, Date date) {
-        stringBuilder.append(Functions.getTime(date)).append(" '").append(getName()).append("' ");
+        stringBuilder.append(Functions.getTime(date)).append("'").append(getName()).append("' ");
         if (isDiscount) {
             stringBuilder.append("with discount, ");
         }

@@ -25,6 +25,6 @@ public class Functions {
     }
 
     public static String getTime(Date date) {
-        return new SimpleDateFormat("HH:mm - ").format(date);
+        return new SimpleDateFormat(" [HH:mm] - ").format(date);
     }
 }
