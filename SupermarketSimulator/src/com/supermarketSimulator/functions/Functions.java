@@ -1,5 +1,6 @@
 package com.supermarketSimulator.functions;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -12,7 +13,7 @@ public class Functions {
     public static Date addRandomTime(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.MINUTE, randomNumber(30));
+        cal.add(Calendar.MINUTE, randomNumber(25));
         return cal.getTime();
     }
 
@@ -23,4 +24,7 @@ public class Functions {
         return cal.getTime();
     }
 
+    public static String getTime(Date date) {
+        return new SimpleDateFormat("HH:mm - ").format(date);
+    }
 }
